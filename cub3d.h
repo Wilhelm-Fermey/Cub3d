@@ -6,7 +6,7 @@
 /*   By: wfermey <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/11 09:50:48 by wfermey           #+#    #+#             */
-/*   Updated: 2022/06/11 16:00:34 by wfermey          ###   ########.fr       */
+/*   Updated: 2022/06/13 12:42:16 by wfermey          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,7 @@ char    *ft_read(int fd, char *buff, char *str, int res);
 int		ft_strlen(char *str);
 int		ft_strchr(char *str, char c);
 char    *ft_strjoin(char *str, char *buff);
+int     ft_atoi(char *str);
 
 /* ********************************* SPLIT ********************************** */
 char    **ft_split(char *s, char c);
