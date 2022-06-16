@@ -6,19 +6,17 @@
 /*   By: wfermey <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/16 12:22:30 by wfermey           #+#    #+#             */
-/*   Updated: 2022/06/16 16:04:03 by wfermey          ###   ########.fr       */
+/*   Updated: 2022/06/16 16:16:43 by wfermey          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
 /* ****************  check for space in middle of map  ******************** */
-int	ft_middle(char *str)
+int	ft_middle(char *str, int i)
 {
-	int	i;
-
-	i = 0;
 	printf("str[i] = %c\n", str[i]);
+	printf("str[i -1] = %c\n", str[i -1]);
 	if (str[i -1] != '1')	// si str[i -1] n'est pas 1, error.
 		return 1;
 	while (str[i] == ' ')	// on avance tant que str[i] est ' '
@@ -30,7 +28,10 @@ int	ft_middle(char *str)
 	while (str[i] != ' ' && str[i]) // on avance jusqu'a ' ' ou '\0'
 		i++;
 	if (str[i]  == ' ')
-		ft_middle(&str[i]);
+	{
+		printf("i = %d\n", i);
+		ft_middle(str, i);
+	}
 	else
 	{
 		if (str[-1] != '1')
@@ -57,7 +58,7 @@ int	ft_check_wall(t_file *file)
 			i++;
 		if (file->map[j][i] == ' ')					// si ' '
 		{
-			if (ft_middle(&file->map[j][i]) == 0)		// on envois l'adress de la string a la fonction middle.
+			if (ft_middle(file->map[j], i) == 0)		// on envois l'adress de la string a la fonction middle.
 				j++;
 			else
 				return (1);
