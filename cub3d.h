@@ -6,7 +6,7 @@
 /*   By: wfermey <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/11 09:50:48 by wfermey           #+#    #+#             */
-/*   Updated: 2022/06/15 16:43:03 by wfermey          ###   ########.fr       */
+/*   Updated: 2022/06/16 11:27:39 by wfermey          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ typedef struct	s_file {
 void	ft_add_color(t_file *file, char *tmp);
 
 /* ******************************** PARSING ********************************* */
-int	ft_parsing(char *str, t_file *file);
+int		ft_parsing(char *str, t_file *file);
 
 /* ******************************** Get_N_L ********************************* */
 char    *get_next_line(int fd);
@@ -54,12 +54,13 @@ int     ft_atoi(char *str);
 
 /* ******************************** UTILS2 ********************************** */
 char    *ft_strdup(char *src);
+char    *ft_strdup2(char *src);
 
 /* ********************************* SPLIT ********************************** */
 char    **ft_split(char *s, char c);
 
 /* ********************************* MAP ********************************** */
-int ft_map(char *str, t_file *file);
+int ft_map(char **file_cub, t_file *file);
 
 
 
