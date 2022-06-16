@@ -6,7 +6,7 @@
 /*   By: wfermey <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/11 09:50:48 by wfermey           #+#    #+#             */
-/*   Updated: 2022/06/16 11:27:39 by wfermey          ###   ########.fr       */
+/*   Updated: 2022/06/16 15:25:05 by wfermey          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,11 +30,9 @@ typedef struct	s_data {
 typedef struct	s_file {
 	int		F_color;
 	int		C_color;
+	char	**cub;
 	char	**map;
 }				t_file;
-
-
-/* ********************************** MAIN ********************************** */
 
 /* ******************************** COLOR ********************************* */
 void	ft_add_color(t_file *file, char *tmp);
@@ -60,8 +58,9 @@ char    *ft_strdup2(char *src);
 char    **ft_split(char *s, char c);
 
 /* ********************************* MAP ********************************** */
-int ft_map(char **file_cub, t_file *file);
+int	ft_put_map(t_file *file);
 
-
+/* ******************************* CHECK_MAP ******************************** */
+int		ft_check_map(t_file *file);
 
 #endif

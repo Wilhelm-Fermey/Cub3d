@@ -5,16 +5,16 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: wfermey <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/15 13:58:54 by wfermey           #+#    #+#             */
-/*   Updated: 2022/06/16 11:37:00 by wfermey          ###   ########.fr       */
+/*   Created: 2022/06/16 14:57:29 by wfermey           #+#    #+#             */
+/*   Updated: 2022/06/16 15:28:20 by wfermey          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
 
-/* ******************  malloc map in struct  ********************** */
-void	ft_size_map(char **file_cub, t_file *file)
+/* ************************************************************************** */
+int	ft_size_map(t_file *file)
 {
 	int		i;
 	int		j;
@@ -23,60 +23,43 @@ void	ft_size_map(char **file_cub, t_file *file)
 	j = 0;
 	i = 0;
 	count = 0;
-	while (file_cub[j])
+	while (file->cub[j])
 	{
 		i = 0;
-		while (file_cub[j][i] == 32 || file_cub[j][i] == '	')
+		while (file->cub[j][i] == 32 || file->cub[j][i] == '	')
 			i++;
-		if (file_cub[j][i] == '1')
-		{
+		if (file->cub[j][i] == '1' || file->cub[j][i] == '0')
 			count++;
-//			printf("%s\n", file_cub[j]);
-		}
 		j++;
 	}
-	printf("%d\n",  count);
-	file->map = malloc(count + 1 * sizeof(char *));
+	return (count);
 }
 
-/* ******************  put map in struct   ********************** */
-void	ft_put_map(char **file_cub, t_file *file)
+/* *********************** put just map in struct ************************** */
+int	ft_put_map(t_file *file)
 {
 	int		i;
 	int		j;
 	int		x;
 
-	ft_size_map(file_cub, file);
+	file->map = malloc((ft_size_map(file) + 1) * sizeof(char *));
+	if (file->map == NULL)
+		return (printf("Error malloc\n"), 1);
 	i = 0;
 	j = 0;
 	x = 0;
-	while (file_cub[j])
+	while (file->cub[j])
 	{
 		i = 0;
-		while (file_cub[j][i] == 32 /*|| file_cub[j][i] == '	'*/)
+		while (file->cub[j][i] == 32)
 			i++;
-		if (file_cub[j][i] == '1')
+		if (file->cub[j][i] == '1' || file->cub[j][i] == '0')
 		{
-			file->map[x] = ft_strdup2(file_cub[j]);
-	//		printf("%s\n", file_cub[j]);
+			file->map[x] = ft_strdup(file->cub[j]);
 			x++;
 		}
 		j++;
 	}
 	file->map[x] = NULL;
-}
-
-
-/* ******************  main map function   ********************** */
-int	ft_map(char **file_cub, t_file *file)
-{
-	ft_put_map(file_cub, file);
-
-	int	i = 0;
-	while (file->map[i])
-	{
-		printf("%s\n", file->map[i]);
-		i++;
-	}
 	return (0);
 }
