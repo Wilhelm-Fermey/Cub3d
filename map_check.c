@@ -6,7 +6,7 @@
 /*   By: wfermey <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/16 12:22:30 by wfermey           #+#    #+#             */
-/*   Updated: 2022/06/16 15:19:44 by wfermey          ###   ########.fr       */
+/*   Updated: 2022/06/16 16:04:03 by wfermey          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ int	ft_middle(char *str)
 	int	i;
 
 	i = 0;
+	printf("str[i] = %c\n", str[i]);
 	if (str[i -1] != '1')	// si str[i -1] n'est pas 1, error.
 		return 1;
 	while (str[i] == ' ')	// on avance tant que str[i] est ' '
@@ -56,7 +57,7 @@ int	ft_check_wall(t_file *file)
 			i++;
 		if (file->map[j][i] == ' ')					// si ' '
 		{
-			if (ft_middle(&file->map[j][i]) == 0)		// on envois l'adress de la string + count a la fonction middle.
+			if (ft_middle(&file->map[j][i]) == 0)		// on envois l'adress de la string a la fonction middle.
 				j++;
 			else
 				return (1);
