@@ -6,36 +6,31 @@
 /*   By: wfermey <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/16 12:22:30 by wfermey           #+#    #+#             */
-/*   Updated: 2022/06/16 22:26:30 by wilhelmfermey    ###   ########.fr       */
+/*   Updated: 2022/06/17 11:18:57 by wfermey          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
 /* ****************  check for space in middle of map  ******************** */
-int	ft_middle(char *str, int i)
+int	ft_middle(char *str, int *i)
 {
-//	printf("str[i] = %c\n", str[i]);
-//	printf("str[i -1] = %c\n", str[i -1]);
-	if (str[i -1] != '1')	// si str[i -1] n'est pas 1, error.
-		return 1;
-	while (str[i] == ' ')	// on avance tant que str[i] est ' '
-		i++;
-	if (!str[i])			// si str[i] == '\0' on sort
-		return (0);
-	if (str[i] != '1')		// si str[i] != '1', error.
+	if (str[*i -1] != '1')	// si str[i -1] n'est pas 1, error.
 		return (1);
-	while (str[i] != ' ' && str[i]) // on avance jusqu'a ' ' ou '\0'
-		i++;
-	printf("i == %d\n", i);
-	if (str[i]  == ' ')
-	{
-		ft_middle(str, i);
-	}
+	while (str[*i] && str[*i] == ' ')	// on avance tant que str[i] est ' '
+		*i = *i + 1;
+	if (!str[*i])			// si str[i] == '\0' on sort
+		return (0);
+	if (str[*i] != '1')		// si str[i] != '1', error.
+		return (1);
+	while (str[*i] && str[*i] != ' ') // on avance jusqu'a ' ' ou '\0'
+		*i = *i + 1;
+	if (str[*i]  == ' ')
+		return (2);
 	else
 	{
-		if (str[i -1] != '1')
-			return (printf("ICI OUI \n"), 1);
+		if (str[*i -1] != '1')
+			return (1);
 	}
 	return (0);
 }
@@ -45,8 +40,10 @@ int	ft_check_wall(t_file *file)
 {
 	int	i;
 	int	j;
+	int	x;
 
 	j = 0;
+	x = 0;
 	while (file->map[j])	
 	{
 		i = 0;
@@ -58,12 +55,14 @@ int	ft_check_wall(t_file *file)
 			i++;
 		if (file->map[j][i] == ' ')					// si ' '
 		{
-			if (ft_middle(file->map[j], i) == 0)		// on envois l'adress de la string a la fonction middle.
-				j++;
-			else
+			x = ft_middle(file->map[j], &i);
+			while (x == 2)
+				x = ft_middle(file->map[j], &i);
+			if (x == 1)
 				return (1);
+			j++;
 		}
-		else										
+		else
 		{											// sinon
 			if (file->map[j][i -1] != '1')			// si str[i -1] pas egale a 1, alors error.
 				return (1);
