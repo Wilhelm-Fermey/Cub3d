@@ -6,7 +6,7 @@
 /*   By: wfermey <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/16 12:22:30 by wfermey           #+#    #+#             */
-/*   Updated: 2022/06/16 16:16:43 by wfermey          ###   ########.fr       */
+/*   Updated: 2022/06/16 22:26:30 by wilhelmfermey    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,8 @@
 /* ****************  check for space in middle of map  ******************** */
 int	ft_middle(char *str, int i)
 {
-	printf("str[i] = %c\n", str[i]);
-	printf("str[i -1] = %c\n", str[i -1]);
+//	printf("str[i] = %c\n", str[i]);
+//	printf("str[i -1] = %c\n", str[i -1]);
 	if (str[i -1] != '1')	// si str[i -1] n'est pas 1, error.
 		return 1;
 	while (str[i] == ' ')	// on avance tant que str[i] est ' '
@@ -27,15 +27,15 @@ int	ft_middle(char *str, int i)
 		return (1);
 	while (str[i] != ' ' && str[i]) // on avance jusqu'a ' ' ou '\0'
 		i++;
+	printf("i == %d\n", i);
 	if (str[i]  == ' ')
 	{
-		printf("i = %d\n", i);
 		ft_middle(str, i);
 	}
 	else
 	{
-		if (str[-1] != '1')
-			return (1);
+		if (str[i -1] != '1')
+			return (printf("ICI OUI \n"), 1);
 	}
 	return (0);
 }

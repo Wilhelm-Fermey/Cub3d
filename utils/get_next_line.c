@@ -6,11 +6,11 @@
 /*   By: wfermey <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/11 15:04:12 by wfermey           #+#    #+#             */
-/*   Updated: 2022/06/11 15:05:51 by wfermey          ###   ########.fr       */
+/*   Updated: 2022/06/16 21:30:59 by wilhelmfermey    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d.h"
+#include "../cub3d.h"
 
 char	*get_next_line(int fd)
 {

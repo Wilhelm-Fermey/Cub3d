@@ -6,13 +6,13 @@
 /*   By: wfermey <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/11 09:34:26 by wfermey           #+#    #+#             */
-/*   Updated: 2022/06/16 10:38:21 by wfermey          ###   ########.fr       */
+/*   Updated: 2022/06/16 21:47:36 by wilhelmfermey    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-
+/*
 void	my_mlx_pixel_put(t_data *data, int x, int y, int color)
 {
 	char	*dst;
@@ -36,7 +36,7 @@ void	print_window(t_file *file)
 	mlx_put_image_to_window(mlx, mlx_win, img.img, 0, 0);							//  afficher image sur la fenetre.
 	mlx_loop(mlx);
 }
-
+*/
 int	main(int argc, char **argv)
 {
 	t_file	file;	

@@ -6,11 +6,11 @@
 /*   By: wfermey <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/11 15:59:45 by wfermey           #+#    #+#             */
-/*   Updated: 2022/06/16 11:56:25 by wfermey          ###   ########.fr       */
+/*   Updated: 2022/06/16 21:31:10 by wilhelmfermey    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d.h"
+#include "../cub3d.h"
 
 static char			**ft_malloc_error(char **tab)
 {

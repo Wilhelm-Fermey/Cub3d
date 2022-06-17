@@ -6,14 +6,14 @@
 /*   By: wfermey <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/11 09:50:48 by wfermey           #+#    #+#             */
-/*   Updated: 2022/06/16 15:25:05 by wfermey          ###   ########.fr       */
+/*   Updated: 2022/06/16 21:45:57 by wilhelmfermey    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CUB3D_H
 # define CUB3D_H
 
-# include <mlx.h>
+# include "minilibx/mlx.h"
 # include <stdio.h>
 # include <fcntl.h>
 # include <unistd.h>
