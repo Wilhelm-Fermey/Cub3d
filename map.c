@@ -6,7 +6,7 @@
 /*   By: wfermey <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/16 14:57:29 by wfermey           #+#    #+#             */
-/*   Updated: 2022/06/16 15:28:20 by wfermey          ###   ########.fr       */
+/*   Updated: 2022/06/17 15:56:29 by wfermey          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ int	ft_put_map(t_file *file)
 	int		j;
 	int		x;
 
-	file->map = malloc((ft_size_map(file) + 1) * sizeof(char *));
+	file->map = malloc((ft_size_map(file) + 2) * sizeof(char *));
 	if (file->map == NULL)
 		return (printf("Error malloc\n"), 1);
 	i = 0;
@@ -60,6 +60,8 @@ int	ft_put_map(t_file *file)
 		}
 		j++;
 	}
+	file->map[x] = NULL;
+	x++;
 	file->map[x] = NULL;
 	return (0);
 }
