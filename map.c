@@ -6,7 +6,7 @@
 /*   By: wfermey <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/16 14:57:29 by wfermey           #+#    #+#             */
-/*   Updated: 2022/06/17 15:56:29 by wfermey          ###   ########.fr       */
+/*   Updated: 2022/06/18 11:01:46 by wilhelmfermey    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,8 +60,6 @@ int	ft_put_map(t_file *file)
 		}
 		j++;
 	}
-	file->map[x] = NULL;
-	x++;
 	file->map[x] = NULL;
 	return (0);
 }

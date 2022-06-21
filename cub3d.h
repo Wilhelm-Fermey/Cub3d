@@ -6,7 +6,7 @@
 /*   By: wfermey <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/11 09:50:48 by wfermey           #+#    #+#             */
-/*   Updated: 2022/06/17 14:54:34 by wfermey          ###   ########.fr       */
+/*   Updated: 2022/06/20 15:05:32 by wilhelmfermey    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,8 @@ typedef struct	s_data {
 typedef struct	s_file {
 	int		F_color;
 	int		C_color;
+	int		player_x;
+	int		player_y;
 	char	**cub;
 	char	**map;
 }				t_file;
@@ -64,6 +66,13 @@ int	ft_put_map(t_file *file);
 int		ft_check_map(t_file *file);
 
 /* ******************************* CHECK_MAP2 ******************************** */
-int ft_check_wall2(t_file *file);
+int ft_check_map2(t_file *file, int len);
+int ft_check_wall2(t_file *file, int len);
+
+
+/* ***************************** CHECK_MAP3 ***************************** */
+int ft_check_player(t_file *file);
+int ft_check_number(t_file *file);
+
 
 #endif

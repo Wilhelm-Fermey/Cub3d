@@ -6,7 +6,7 @@
 /*   By: wfermey <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/15 13:41:42 by wfermey           #+#    #+#             */
-/*   Updated: 2022/06/16 15:31:01 by wfermey          ###   ########.fr       */
+/*   Updated: 2022/06/20 17:29:39 by wilhelmfermey    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,16 +39,8 @@ int	ft_parsing(char *str, t_file *file)
 	ft_put_file(str, file);					// put .cub in struct
 	if (ft_put_map(file))					// put map in struct
 		return (1);
-
-	while (file->map[i])
-	{
-		printf("%s\n", file->map[i]);
-		i++;
-	}
-
 	if (ft_check_map(file))					// check map
 		return (1);
-	i = 0;
 	while (file->cub[i])
 	{
 		if (file->cub[i][0] == 'F' || file->cub[i][0] == 'C')

@@ -6,13 +6,33 @@
 /*   By: wfermey <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/16 12:22:30 by wfermey           #+#    #+#             */
-/*   Updated: 2022/06/17 14:25:08 by wfermey          ###   ########.fr       */
+/*   Updated: 2022/06/20 17:39:23 by wilhelmfermey    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-/* ****************  check for space in middle of map  ******************** */
+/* **************** check max len line  ******************** */
+int	ft_max_len(t_file *file)
+{
+	int	i;
+	int	j;
+	int res;
+
+	i = 0;
+	j = 0;
+	while (file->map[j])
+	{
+		while (file->map[j][i])
+			i++;
+		if (i > res)
+			res = i;
+		j++;
+	}
+	return (res);
+}
+
+/* ****************  check wall by line  ******************** */
 int	ft_middle(char *str, int *i)
 {
 	if (str[*i -1] != '1')	// si str[i -1] n'est pas 1, error.
@@ -47,7 +67,7 @@ int	ft_loop(t_file *file,int *j, int *i)
 	return (0);
 }
 
-/* ******************  check if wall == 1  ********************** */
+/* ******************  check wall by line  ********************** */
 int	ft_check_wall(t_file *file)
 {
 	int	i;
@@ -77,12 +97,27 @@ int	ft_check_wall(t_file *file)
 	return (0);
 }
 
-/* ******************  main check function   ********************** */
+/* ******************  main map check function ********************** */
 int	ft_check_map(t_file *file)
 {
+	int 	i;
+
 	if (ft_check_wall(file))
 		return (printf("Error parsing\n"), 1);
-	if (ft_check_wall2(file))
+	i = ft_max_len(file);
+	if (ft_check_map2(file, i))
 		return (printf("Error parsing\n"), 1);
+	if (ft_check_player(file))
+		return (printf("Error parsing\n"), 1);
+	if (ft_check_number(file))	
+		return (printf("Error parsing\n"), 1);
+
+	i = 0;
+	while (file->map[i])
+	{
+		printf("%s\n",file->map[i]);
+		i++;
+	}
+		
 	return (0);	
 }
