@@ -6,7 +6,7 @@
 /*   By: wfermey <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/16 14:57:29 by wfermey           #+#    #+#             */
-/*   Updated: 2022/06/18 11:01:46 by wilhelmfermey    ###   ########.fr       */
+/*   Updated: 2022/06/22 10:54:21 by wilhelmfermey    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ int	ft_put_map(t_file *file)
 			i++;
 		if (file->cub[j][i] == '1' || file->cub[j][i] == '0')
 		{
-			file->map[x] = ft_strdup(file->cub[j]);
+			file->map[x] = ft_strdup(file->cub[j], file);
 			x++;
 		}
 		j++;

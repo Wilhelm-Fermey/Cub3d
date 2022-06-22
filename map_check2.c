@@ -92,5 +92,6 @@ int	ft_check_map2(t_file *file, int len)
 		file->map[x][y] = '\0';
 	file->map[++x] = NULL;
 	i = ft_check_wall2(file, len);
+	file->map[--x] = NULL;
 	return (i);
 }

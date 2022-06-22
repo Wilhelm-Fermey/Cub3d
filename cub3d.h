@@ -1,12 +1,11 @@
-/* ************************************************************************** */
-/*                                                                            */
+
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wfermey <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/11 09:50:48 by wfermey           #+#    #+#             */
-/*   Updated: 2022/06/20 15:05:32 by wilhelmfermey    ###   ########.fr       */
+/*   Updated: 2022/06/22 10:55:14 by wilhelmfermey    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +17,8 @@
 # include <fcntl.h>
 # include <unistd.h>
 # include <stdlib.h>
+# include <sys/types.h>
+# include <dirent.h>
 
 typedef struct	s_data {
 	void	*img;
@@ -40,7 +41,7 @@ typedef struct	s_file {
 void	ft_add_color(t_file *file, char *tmp);
 
 /* ******************************** PARSING ********************************* */
-int		ft_parsing(char *str, t_file *file);
+int		ft_parsing(int argc, char **argv, t_file *file);
 
 /* ******************************** Get_N_L ********************************* */
 char    *get_next_line(int fd);
@@ -53,8 +54,7 @@ char    *ft_strjoin(char *str, char *buff);
 int     ft_atoi(char *str);
 
 /* ******************************** UTILS2 ********************************** */
-char    *ft_strdup(char *src);
-char    *ft_strdup2(char *src);
+char    *ft_strdup(char *src, t_file *file);
 
 /* ********************************* SPLIT ********************************** */
 char    **ft_split(char *s, char c);
@@ -69,10 +69,16 @@ int		ft_check_map(t_file *file);
 int ft_check_map2(t_file *file, int len);
 int ft_check_wall2(t_file *file, int len);
 
-
 /* ***************************** CHECK_MAP3 ***************************** */
 int ft_check_player(t_file *file);
 int ft_check_number(t_file *file);
+int ft_put_wall(t_file *file);
+
+
+/* ***************************** CHECK_BASICS ***************************** */
+int ft_check_basic(int argc, char **argv);
+
+
 
 
 #endif

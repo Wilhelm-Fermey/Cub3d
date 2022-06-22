@@ -6,7 +6,7 @@
 /*   By: wfermey <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/11 09:34:26 by wfermey           #+#    #+#             */
-/*   Updated: 2022/06/16 21:47:36 by wilhelmfermey    ###   ########.fr       */
+/*   Updated: 2022/06/22 15:51:57 by wilhelmfermey    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ int	main(int argc, char **argv)
 {
 	t_file	file;	
 
-	if (ft_parsing(argv[1], &file))
+	if (ft_parsing(argc, argv, &file))
 		return (1);
 //	print_window(&file);
 	return (0);
