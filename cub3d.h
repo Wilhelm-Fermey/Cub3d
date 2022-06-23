@@ -76,6 +76,7 @@ int ft_put_wall(t_file *file);
 
 
 /* ***************************** CHECK_BASICS ***************************** */
+int ft_empty_line(char *res);
 int ft_check_basic(int argc, char **argv);
 
 

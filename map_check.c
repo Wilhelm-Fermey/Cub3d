@@ -6,7 +6,7 @@
 /*   By: wfermey <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/16 12:22:30 by wfermey           #+#    #+#             */
-/*   Updated: 2022/06/22 16:54:39 by wilhelmfermey    ###   ########.fr       */
+/*   Updated: 2022/06/23 09:21:38 by wilhelmfermey    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,13 +101,6 @@ int	ft_check_wall(t_file *file)
 int	ft_check_map(t_file *file)
 {
 	int 	i;
-
-	i = 0;
-	while (file->map[i])
-	{
-		printf("%s\n", file->map[i]);
-		i++;
-	}
 
 	if (ft_check_wall(file))
 		return (printf("Error parsing\n"), 1);

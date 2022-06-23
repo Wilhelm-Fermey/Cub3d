@@ -6,7 +6,7 @@
 /*   By: wfermey <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/15 13:41:42 by wfermey           #+#    #+#             */
-/*   Updated: 2022/06/22 16:46:23 by wilhelmfermey    ###   ########.fr       */
+/*   Updated: 2022/06/23 10:01:20 by wilhelmfermey    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,8 @@ int	ft_put_file(char *str, t_file *file)
 		res = ft_strjoin(res, tmp);
 		tmp = get_next_line(fd);
 	}
+	if (ft_empty_line(res))
+		return (printf("Error : Found empty line in map \n"), 1);
 	file->cub = ft_split(res, '\n');
 	return (0);
 }
