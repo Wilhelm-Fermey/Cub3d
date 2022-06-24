@@ -6,7 +6,7 @@
 /*   By: wfermey <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/16 12:22:30 by wfermey           #+#    #+#             */
-/*   Updated: 2022/06/23 09:21:38 by wilhelmfermey    ###   ########.fr       */
+/*   Updated: 2022/06/24 16:21:43 by wilhelmfermey    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,10 @@ int	ft_max_len(t_file *file)
 
 	i = 0;
 	j = 0;
+	res = 0;
 	while (file->map[j])
 	{
+		i = 0;
 		while (file->map[j][i])
 			i++;
 		if (i > res)

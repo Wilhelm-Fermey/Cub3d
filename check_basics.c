@@ -6,11 +6,44 @@
 /*   By: wilhelmfermey <marvin@42.fr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/22 15:47:23 by wilhelmfermey     #+#    #+#             */
-/*   Updated: 2022/06/23 10:30:51 by wilhelmfermey    ###   ########.fr       */
+/*   Updated: 2022/06/23 12:06:28 by wilhelmfermey    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
+
+int	ft_no_map(t_file *file)
+{
+	int i;
+	int	j;
+	int	count;
+
+	j = 0;
+	count = 0;
+	while (file->cub[j])
+	{
+		i = 0;
+		while (file->cub[j][i])
+		{
+			while (file->cub[j][i] == ' ')
+				i++;
+			if (file->cub[j][i] == '1' || file->cub[j][i] == '0')
+				count++;
+			i++;
+		}
+		j++;
+	}
+	if (!count)
+		return (1);
+	return (0);
+}
+
+int	ft_map_position(t_file *file)
+{
+	if (ft_no_map(file))
+		return (printf("Error : Any map found in the file\n"), 1);
+	return (0);
+}
 
 int	ft_empty_line(char *str)
 {
@@ -19,6 +52,7 @@ int	ft_empty_line(char *str)
 	int	count;
 
 	count = 0;
+	i = 0;
 	while (str[i])
 	{
 		if (str[i] == '\n' && count)

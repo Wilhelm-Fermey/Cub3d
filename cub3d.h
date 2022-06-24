@@ -35,6 +35,7 @@ typedef struct	s_file {
 	int		player_y;
 	char	**cub;
 	char	**map;
+	char	**info;
 }				t_file;
 
 /* ******************************** COLOR ********************************* */
@@ -60,7 +61,7 @@ char    *ft_strdup(char *src, t_file *file);
 char    **ft_split(char *s, char c);
 
 /* ********************************* MAP ********************************** */
-int	ft_put_map(t_file *file);
+int		ft_put_map(t_file *file);
 
 /* ******************************* CHECK_MAP ******************************** */
 int		ft_check_map(t_file *file);
@@ -74,10 +75,13 @@ int ft_check_player(t_file *file);
 int ft_check_number(t_file *file);
 int ft_put_wall(t_file *file);
 
-
 /* ***************************** CHECK_BASICS ***************************** */
+int ft_map_position(t_file *file);
 int ft_empty_line(char *res);
 int ft_check_basic(int argc, char **argv);
+
+/* ***************************** INFO ***************************** */
+int ft_main_info(t_file *file);
 
 
 

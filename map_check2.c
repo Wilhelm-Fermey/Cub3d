@@ -56,7 +56,7 @@ int	ft_check_wall2(t_file *file, int len)
 	while (++j < len)
 	{
 		i = 0;
-		while (file->map[i][j] == ' ')				// si ' ' on avance jusqu'a quelque chose
+		while (file->map[i][j] == ' ')		// si ' ' on avance jusqu'a quelque chose
 			i++;
 		if (file->map[i][j] != '1')					// check si quelque chose == 1
 			return (1);
