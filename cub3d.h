@@ -56,6 +56,7 @@ int     ft_atoi(char *str);
 
 /* ******************************** UTILS2 ********************************** */
 char    *ft_strdup(char *src, t_file *file);
+char    *ft_strdup2(char *src);
 
 /* ********************************* SPLIT ********************************** */
 char    **ft_split(char *s, char c);
@@ -84,6 +85,12 @@ int ft_check_basic(int argc, char **argv);
 int ft_main_info(t_file *file);
 
 
+/* ***************************** CHECK_INFO ***************************** */
+int ft_check_F(t_file *file);
+int ft_check_C(t_file *file);
+int ft_check_NO(t_file *file);
+int ft_check_SO(t_file *file);
+int ft_check_EA(t_file *file);
 
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: wfermey <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/15 16:41:18 by wfermey           #+#    #+#             */
-/*   Updated: 2022/06/24 16:13:47 by wilhelmfermey    ###   ########.fr       */
+/*   Updated: 2022/06/26 12:02:23 by wilhelmfermey    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,30 +40,6 @@ int	ft_len_map(t_file *file)
 	}
 	return (res);
 }
-/*
-int	ft_len_map(t_file *file)
-{
-	int	i;
-	int	j;
-	int res;
-
-	j = 0;
-	res = 0;
-	while (file->cub[j])
-	{
-
-		i = 0;
-		while (file->cub[j][i])
-		{
-			if (i > res)
-				res = i;
-			i++;
-		}
-		j++;
-	}
-	return (res +1);
-}
-*/
 
 char	*ft_strdup(char *src, t_file *file)
 {
@@ -91,3 +67,26 @@ char	*ft_strdup(char *src, t_file *file)
 	str[i] = '\0';
 	return (str);
 }
+
+char	*ft_strdup2(char *src)
+{
+	char	*new;
+	int		i;
+	int		size;
+
+	size = 0;
+	while (src[size])
+		++size;
+	if (!(new = malloc(sizeof(char) * (size + 1))))
+		return (NULL);
+	i = 0;
+	while (src[i])
+	{
+		new[i] = src[i];
+		i++;
+	}
+	new[i] = '\0';
+	return (new);
+}
+
+
