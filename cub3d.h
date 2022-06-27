@@ -40,6 +40,8 @@ typedef struct	s_file {
 
 /* ******************************** COLOR ********************************* */
 void	ft_add_color(t_file *file, char *tmp);
+int		ft_main_color(t_file *file);
+void    ft_char_to_int(char **color_rgb, t_file *file, char which);
 
 /* ******************************** PARSING ********************************* */
 int		ft_parsing(int argc, char **argv, t_file *file);
@@ -91,6 +93,10 @@ int ft_check_C(t_file *file);
 int ft_check_NO(t_file *file);
 int ft_check_SO(t_file *file);
 int ft_check_EA(t_file *file);
+
+
+/* ***************************** CHECK_COLOR ***************************** */
+int ft_main_check_color(char *str, t_file *file, int which);
 
 
 #endif
