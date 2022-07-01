@@ -31,6 +31,10 @@ typedef struct	s_data {
 typedef struct	s_file {
 	int		F_color;
 	int		C_color;
+	char	*path_NO;
+	char	*path_SO;
+	char	*path_EA;
+	char	*path_WE;
 	int		player_x;
 	int		player_y;
 	char	**cub;
@@ -71,7 +75,8 @@ int		ft_check_map(t_file *file);
 
 /* ******************************* CHECK_MAP2 ******************************** */
 int ft_check_map2(t_file *file, int len);
-int ft_check_wall2(t_file *file, int len);
+int ft_check_wall2(t_file *file, int len, int x, int z);
+int ft_empty_space_end(t_file *file, int len);
 
 /* ***************************** CHECK_MAP3 ***************************** */
 int ft_check_player(t_file *file);
@@ -97,6 +102,17 @@ int ft_check_EA(t_file *file);
 
 /* ***************************** CHECK_COLOR ***************************** */
 int ft_main_check_color(char *str, t_file *file, int which);
+
+/* ***************************** TEXTURE ***************************** */
+int ft_main_texture(t_file *file);
+
+/* ***************************** TEXTURE2 ***************************** */
+int ft_check2_NO(char *str, t_file *file);
+int ft_check2_SO(char *str, t_file *file);
+int ft_check2_EA(char *str, t_file *file);
+int ft_check2_WE(char *str, t_file *file);
+
+
 
 
 #endif

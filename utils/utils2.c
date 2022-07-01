@@ -6,7 +6,7 @@
 /*   By: wfermey <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/15 16:41:18 by wfermey           #+#    #+#             */
-/*   Updated: 2022/06/26 12:02:23 by wilhelmfermey    ###   ########.fr       */
+/*   Updated: 2022/06/29 11:25:51 by wilhelmfermey    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,9 +32,9 @@ int	ft_len_map(t_file *file)
 		i = 0;
 		while (file->cub[j][i])
 		{
+			i++;
 			if (i > res && count)
 				res = i;
-			i++;
 		}
 		j++;
 	}
@@ -52,14 +52,14 @@ char	*ft_strdup(char *src, t_file *file)
 	end = ft_len_map(file);
 	while (src[len])
 		len++;
-	str = (char*)malloc(sizeof(*str) * (end + 1));
+	str = malloc(sizeof(char) * (end + 1));
 	i = 0;
 	while (i < len)
 	{
 		str[i] = src[i];
 		i++;
 	}
-	while (i <= end)
+	while (i < end)
 	{
 		str[i] = ' ';
 		i++;

@@ -47,41 +47,64 @@ int	ft_loop2(t_file *file, int *i, int *j)
 }
 
 /* ************************* check wall by column ************************** */
-int	ft_check_wall2(t_file *file, int len)
+int	ft_check_wall2(t_file *file, int len, int x, int y)
 {
 	int	i;
 	int	j;
 
-	j = -1;
+//j = -1;
+	j = x -1;
 	while (++j < len)
 	{
 		i = 0;
 		while (file->map[i][j] == ' ')		// si ' ' on avance jusqu'a quelque chose
 			i++;
-		if (file->map[i][j] != '1')					// check si quelque chose == 1
+		if (file->map[i][j] && file->map[i][j] != '1')	// check si quelque chose == 1
 			return (1);
 		while (file->map[i][j] && file->map[i][j] != ' ' )	// on avance jusqu'a ' ' ou 'NULL'
 			i++;
 		if (file->map[i][j] == ' ')					// si ' '
 		{
 			if (ft_loop2(file, &i, &j) == 1)
-				return (1);
+				return (printf("ICI\n"), 1);
 		}
 		else
 		{											// sinon
-			if (file->map[i -1][j] != '1')			// si str[i -1] pas egale a 1, alors error.
+			if (file->map[i -1][j] != '1' && j < y)			// si str[i -1] pas egale a 1, alors error.
 				return (1);
 		}
 	}
 	return (0);
 }
-	
+
+int	ft_empty_space(t_file *file, int len)
+{
+	int	i;
+	int	j;
+	int count;
+
+	j = -1;
+	count = 0;
+	while (j++ < len)
+	{
+		i = 0;
+		while (file->map[i][j] == ' ')
+			i++;
+		if (file->map[i][j] != ' ' && file->map[i][j] != '\0')
+			return (count);
+		if (file->map[i][j] == '\0')
+			count++;
+	}
+	return (count);
+}
+
 /* ************************* check mur par colone ************************** */
 int	ft_check_map2(t_file *file, int len)
 {
 	int	i;
 	int	x;
 	int	y;
+	int	z;
 
 	x = 0;
 	y = -1;
@@ -91,7 +114,9 @@ int	ft_check_map2(t_file *file, int len)
 	while (++y < 1000)
 		file->map[x][y] = '\0';
 	file->map[++x] = NULL;
-	i = ft_check_wall2(file, len);
+	y = ft_empty_space(file, len);
+	z = ft_empty_space_end(file, len);
+	i = ft_check_wall2(file, len, y, z);
 	file->map[--x] = NULL;
 	return (i);
 }

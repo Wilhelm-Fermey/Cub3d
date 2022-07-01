@@ -6,7 +6,7 @@
 /*   By: wfermey <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/15 13:41:42 by wfermey           #+#    #+#             */
-/*   Updated: 2022/06/27 09:20:36 by wilhelmfermey    ###   ########.fr       */
+/*   Updated: 2022/06/29 10:30:47 by wilhelmfermey    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,13 +54,7 @@ int	ft_parsing(int argc, char **argv, t_file *file)
 		return (1);
 	if (ft_main_color(file))
 		return (1);
-/*
-	while (file->cub[i])
-	{
-		if (file->cub[i][0] == 'F' || file->cub[i][0] == 'C')
-			ft_add_color(file, file->cub[i]);
-		i++;
-	}
-*/
+	if (ft_main_texture(file))
+		return (1);
 	return (0);
 }
