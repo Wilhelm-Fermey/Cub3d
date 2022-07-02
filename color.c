@@ -6,7 +6,7 @@
 /*   By: wfermey <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/11 14:27:09 by wfermey           #+#    #+#             */
-/*   Updated: 2022/06/27 15:50:30 by wilhelmfermey    ###   ########.fr       */
+/*   Updated: 2022/07/02 11:44:41 by wilhelmfermey    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ void	ft_char_to_int(char **color_rgb, t_file *file, char which)
 		file->C_color = ft_convert(c_rgb2[0], c_rgb2[1], c_rgb2[2]);
 	if (which == 'F')
 		file->F_color = ft_convert(c_rgb2[0], c_rgb2[1], c_rgb2[2]);
+	free (c_rgb2);
 }
 
 
@@ -42,7 +43,6 @@ int	ft_main_color(t_file *file)
 	int		j;
 	int 	i;
 	char	which;
-	char 	**color;
 
 	j = 0;
 	while (file->info[j])

@@ -6,7 +6,7 @@
 /*   By: wilhelmfermey <marvin@42.fr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/27 17:00:16 by wilhelmfermey     #+#    #+#             */
-/*   Updated: 2022/06/29 10:08:36 by wilhelmfermey    ###   ########.fr       */
+/*   Updated: 2022/07/02 12:33:19 by wilhelmfermey    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ char *ft_malloc()
 
 	str = malloc(500 * sizeof(char));
 	if (!str)
-		return (NULL);
+		return (printf("Error Malloc\n"), NULL);
 	return (str);
 }
 
@@ -75,13 +75,13 @@ char **ft_malloc_str(t_file *file)
 		len++;
 	str = malloc (len + 1 * sizeof(int));
 	if (!str)
-		return (NULL);
+		return (printf("Error Malloc\n"), NULL);
 	i = 0;
 	while (i < len)
 	{
 		str[i] = malloc(500 * sizeof(int));
 		if (!str[i])
-			return (NULL);
+			return (printf("Error Malloc\n"), NULL);
 		i++;
 	}
 	str[i] = NULL;
@@ -100,7 +100,7 @@ int	ft_main_texture(t_file *file)
 	j = 0;
 	str = ft_malloc_str(file);
 	if (ft_malloc_texture(file))
-		return (1);
+		return (printf("Error Malloc\n"), 1);
 	j = 0;
 	while (str[j])
 	{
@@ -111,9 +111,9 @@ int	ft_main_texture(t_file *file)
 			|| str[j][i] == 'E' || str[j][i] == 'W')
 		{
 			if (ft_which_path(str[j][i], str[j], file))
-				return (printf("Error\n"), 1);
+				return (printf("Error path texture\n"), 1);
 		}
 		j++;
 	}
-	return (0);
+	return (ft_free_tab(str), 0);
 }

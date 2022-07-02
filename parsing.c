@@ -6,7 +6,7 @@
 /*   By: wfermey <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/15 13:41:42 by wfermey           #+#    #+#             */
-/*   Updated: 2022/06/29 10:30:47 by wilhelmfermey    ###   ########.fr       */
+/*   Updated: 2022/07/02 11:35:20 by wilhelmfermey    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,15 +31,17 @@ int	ft_put_file(char *str, t_file *file)
 	}
 	file->cub = ft_split(res, '\n');
 	if (ft_empty_line(res))
-		return (printf("Error \n"), 1);
-	return (0);
+	{
+		free (res);
+		free (tmp);
+		return (printf("Error, empty line\n"), 1);
+	}
+	return (free(res), free(tmp), 0);
 }
 
 /* ******************  main parsing function   ********************** */
 int	ft_parsing(int argc, char **argv, t_file *file)
 {
-	int		i;
-
 	if (ft_check_basic(argc, argv))
 		return (1);
 	if (ft_put_file(argv[1], file))		// put .cub in struct

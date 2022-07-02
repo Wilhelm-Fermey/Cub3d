@@ -6,7 +6,7 @@
 /*   By: wilhelmfermey <marvin@42.fr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/27 10:17:23 by wilhelmfermey     #+#    #+#             */
-/*   Updated: 2022/06/27 15:47:46 by wilhelmfermey    ###   ########.fr       */
+/*   Updated: 2022/07/02 12:23:42 by wilhelmfermey    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,7 +97,7 @@ int	ft_check_nb_of_nb(char ** color)
 		if (ft_atoi(color[i]) < 0)
 			return (1);
 		if ((color[i][0] >= 0 && color[i][0] < '0') 
-			|| color[i][0] > '9' && color[i][0] <= 127)
+			|| (color[i][0] > '9' && color[i][0] <= 127))
 			return (1);
 		i++;
 	}
@@ -111,14 +111,15 @@ int	ft_main_check_color(char *str, t_file *file, int which)
 {
 	char **color;
 
+	color = NULL;
 	if (ft_check_coma(str))
-		return (printf("Error\n"), 1);
+		return (printf("Error coma\n"), 1);
 	color = ft_malloc_color(color);
 	if (!color)
 		return (1);
 	color = ft_add_color_char(str, color);
 	if (ft_check_nb_of_nb(color))
-		return (printf("Error\n"), 1);
+		return (printf("Error with color number\n"), 1);
 	ft_char_to_int(color, file, which);
-	return (0);
+	return (ft_free_tab(color), 0);
 }

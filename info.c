@@ -6,7 +6,7 @@
 /*   By: wilhelmfermey <marvin@42.fr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/24 09:32:18 by wilhelmfermey     #+#    #+#             */
-/*   Updated: 2022/06/26 12:37:11 by wilhelmfermey    ###   ########.fr       */
+/*   Updated: 2022/07/02 12:26:55 by wilhelmfermey    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,17 +86,17 @@ int	ft_check_WE(t_file *file)
 int	check_id_info(t_file *file)
 {
 	if (ft_check_F(file))
-		return (printf("Error\n"), 1);
+		return (printf("Error with id F\n"), 1);
 	if (ft_check_C(file))
-		return (printf("Error\n"), 1);
+		return (printf("Error with id C\n"), 1);
 	if (ft_check_NO(file))
-		return (printf("Error\n"), 1);
+		return (printf("Error with id NO\n"), 1);
 	if (ft_check_SO(file))
-		return (printf("Error\n"), 1);
+		return (printf("Error with id SO\n"), 1);
 	if (ft_check_EA(file))
-		return (printf("Error\n"), 1);
+		return (printf("Error with id EA\n"), 1);
 	if (ft_check_WE(file))
-		return (printf("Error\n"), 1);
+		return (printf("Error with id WE\n"), 1);
 
 	return (0);
 }

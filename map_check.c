@@ -6,7 +6,7 @@
 /*   By: wfermey <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/16 12:22:30 by wfermey           #+#    #+#             */
-/*   Updated: 2022/07/01 09:58:40 by wilhelmfermey    ###   ########.fr       */
+/*   Updated: 2022/07/02 12:27:57 by wilhelmfermey    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,14 +105,14 @@ int	ft_check_map(t_file *file)
 	int 	i;
 
 	if (ft_check_wall(file))
-		return (printf("Error parsing\n"), 1);
+		return (printf("Error parsing map\n"), 1);
 	i = ft_max_len(file);
 	if (ft_check_map2(file, i))
-		return (printf("Error parsing\n"), 1);
+		return (printf("Error parsing map\n"), 1);
 	if (ft_check_player(file))
-		return (printf("Error parsing\n"), 1);
+		return (printf("Error parsing map\n"), 1);
 	if (ft_check_number(file))	
-		return (printf("Error parsing\n"), 1);
+		return (printf("Error parsing map\n"), 1);
 	ft_put_wall(file);
 	return (0);	
 }

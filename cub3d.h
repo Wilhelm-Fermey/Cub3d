@@ -12,21 +12,12 @@
 #ifndef CUB3D_H
 # define CUB3D_H
 
-# include "minilibx/mlx.h"
 # include <stdio.h>
 # include <fcntl.h>
 # include <unistd.h>
 # include <stdlib.h>
 # include <sys/types.h>
 # include <dirent.h>
-
-typedef struct	s_data {
-	void	*img;
-	char	*addr;
-	int		bits_per_pixel;
-	int		line_length;
-	int		endian;
-}				t_data;
 
 typedef struct	s_file {
 	int		F_color;
@@ -91,14 +82,12 @@ int ft_check_basic(int argc, char **argv);
 /* ***************************** INFO ***************************** */
 int ft_main_info(t_file *file);
 
-
 /* ***************************** CHECK_INFO ***************************** */
 int ft_check_F(t_file *file);
 int ft_check_C(t_file *file);
 int ft_check_NO(t_file *file);
 int ft_check_SO(t_file *file);
 int ft_check_EA(t_file *file);
-
 
 /* ***************************** CHECK_COLOR ***************************** */
 int ft_main_check_color(char *str, t_file *file, int which);
@@ -112,7 +101,8 @@ int ft_check2_SO(char *str, t_file *file);
 int ft_check2_EA(char *str, t_file *file);
 int ft_check2_WE(char *str, t_file *file);
 
-
-
+ /* ***************************** FREE ***************************** */
+ int ft_free_tab(char **tab);
+ void ft_free_struct(t_file *file);
 
 #endif

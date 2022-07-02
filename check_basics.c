@@ -6,7 +6,7 @@
 /*   By: wilhelmfermey <marvin@42.fr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/22 15:47:23 by wilhelmfermey     #+#    #+#             */
-/*   Updated: 2022/06/23 12:06:28 by wilhelmfermey    ###   ########.fr       */
+/*   Updated: 2022/07/02 11:18:02 by wilhelmfermey    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,6 @@ int	ft_map_position(t_file *file)
 int	ft_empty_line(char *str)
 {
 	int	i;
-	int	j;
 	int	count;
 
 	count = 0;
