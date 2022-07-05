@@ -6,7 +6,7 @@
 /*   By: wilhelmfermey <marvin@42.fr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/22 15:47:23 by wilhelmfermey     #+#    #+#             */
-/*   Updated: 2022/07/02 11:18:02 by wilhelmfermey    ###   ########.fr       */
+/*   Updated: 2022/07/05 11:11:12 by wilhelmfermey    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ int	ft_no_map(t_file *file)
 		j++;
 	}
 	if (!count)
-		return (1);
+		return (ft_free(file, 1), 1);
 	return (0);
 }
 

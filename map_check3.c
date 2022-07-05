@@ -6,7 +6,7 @@
 /*   By: wilhelmfermey <marvin@42.fr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/20 14:37:32 by wilhelmfermey     #+#    #+#             */
-/*   Updated: 2022/06/21 11:08:21 by wilhelmfermey    ###   ########.fr       */
+/*   Updated: 2022/07/05 11:05:23 by wilhelmfermey    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ int	ft_check_player(t_file *file)
 			if (file->map[j][i] == 'N' || file->map[j][i] == 'S'
 				|| file->map[j][i] == 'E' || file->map[j][i] == 'W')
 			{
+				file->direction = file->map[j][i];
 				file->map[j][i] = '0';
 				file->player_x = i;
 				file->player_y = j;

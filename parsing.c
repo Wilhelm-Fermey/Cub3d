@@ -6,7 +6,7 @@
 /*   By: wfermey <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/15 13:41:42 by wfermey           #+#    #+#             */
-/*   Updated: 2022/07/02 11:35:20 by wilhelmfermey    ###   ########.fr       */
+/*   Updated: 2022/07/05 11:21:06 by wilhelmfermey    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ int	ft_put_file(char *str, t_file *file)
 	{
 		free (res);
 		free (tmp);
-		return (printf("Error, empty line\n"), 1);
+		return (printf("Error, empty line\n"), ft_free(file, 1), 1);
 	}
 	return (free(res), free(tmp), 0);
 }
@@ -49,14 +49,14 @@ int	ft_parsing(int argc, char **argv, t_file *file)
 	if (ft_map_position(file))
 		return (1);
 	if (ft_put_map(file))					// put map in struct
-		return (1);
+		return (ft_free(file, 2), 1);
 	if (ft_check_map(file))					// check map
-		return (1);
+		return (ft_free(file, 2), 1);
 	if (ft_main_info(file))
-		return (1);
+		return (ft_free(file, 3), 1);
 	if (ft_main_color(file))
 		return (1);
 	if (ft_main_texture(file))
-		return (1);
+		return (ft_free(file, 4), 1);
 	return (0);
 }

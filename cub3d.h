@@ -22,6 +22,7 @@
 typedef struct	s_file {
 	int		F_color;
 	int		C_color;
+	char 	direction;
 	char	*path_NO;
 	char	*path_SO;
 	char	*path_EA;
@@ -103,6 +104,6 @@ int ft_check2_WE(char *str, t_file *file);
 
  /* ***************************** FREE ***************************** */
  int ft_free_tab(char **tab);
- void ft_free_struct(t_file *file);
+ void ft_free(t_file *file, int i);
 
 #endif
